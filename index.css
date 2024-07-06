@@ -1,0 +1,135 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+* {
+    box-sizing: border-box;
+    font-family: 'Pretendard Variable';
+}
+
+body {
+    margin: 0;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 30vh;
+    color: white;
+    line-height: 4.5rem;
+}
+
+#main {
+    background-color: #3c87f1;
+}
+
+
+.slide {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    width: 50vw;
+    padding-left: 50px;
+}
+
+.right {
+    width: 50%;
+}
+
+.main-p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 2rem;
+    color: white;
+}
+
+.appstore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3D3D3D;
+    border-radius: 8px;
+    width: 50%;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.ios-img {
+    width: 17%;
+    margin-right: 10px;
+}
+
+.mockup {
+    height: 90vh;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.483));
+}
+
+.mockup-wrap-odd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10vw;
+}
+
+.mockup-desc-odd {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.mockup-wrap-even {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10vw;
+}
+
+.mockup-desc-even {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    padding-left: 20vw;
+}
+
+.desc-title {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.desc {
+    margin-top: 5vh;
+    width: 25vw;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    text-wrap: pretty;
+    word-break: keep-all;
+}
+
+.footer {
+    width: 100vw;
+    height: 30vh;
+    background-color: #3D3D3D;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.icon-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 35px;
+    filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(103%) contrast(103%);
+    margin-right: 10px;
+}
