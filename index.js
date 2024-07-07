@@ -17,7 +17,7 @@ const neckAnimation = (e) => {
         document.getElementsByTagName('body')[0].style.position = 'static';
         return;
     }
-
+    console.log(e.deltaY);
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
         offsetSum += e.deltaY > 0 ? 10 : -10;
