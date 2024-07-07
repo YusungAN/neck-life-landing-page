@@ -408,6 +408,10 @@ body {
         width: 17%;
         margin-right: 10px;
     }
+
+    .appstore {
+        width: 65%;
+    }
     
     .mockup {
         height: 70vh;
