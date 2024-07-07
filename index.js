@@ -24,7 +24,6 @@ const neckAnimation = (e) => {
         offsetSum = offsetSum > 500 ? 500 : offsetSum;
     }
     
-    console.log(offsetSum, outOfMain);
     if (offsetSum < 0) {
         offsetSum = 0;
     } else if (offsetSum >= 500) {
@@ -72,9 +71,15 @@ const neckAnimation = (e) => {
     } 
 }
 
-let prevY;
+let prevY = 0;
 const neckAnimationMobile = (e) => {
-    console.log(e.touches);
+    let nowY = e.touches[0].pageY;
+    if (prevY == 0) {
+        prevY = nowY;
+        return;
+    }
+    let deltaY = prevY - nowY;
+
     if (disableAnimation) {
         if (window.scrollY == 0) disableAnimation = false;
         document.getElementsByTagName('body')[0].style.position = 'static';
@@ -83,11 +88,10 @@ const neckAnimationMobile = (e) => {
 
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
-        offsetSum += e.deltaY > 0 ? 10 : -10;
+        offsetSum += deltaY > 0 ? 10 : -10;
         offsetSum = offsetSum > 500 ? 500 : offsetSum;
     }
     
-    console.log(offsetSum, outOfMain);
     if (offsetSum < 0) {
         offsetSum = 0;
     } else if (offsetSum >= 500) {
