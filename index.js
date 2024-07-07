@@ -17,7 +17,70 @@ const neckAnimation = (e) => {
         document.getElementsByTagName('body')[0].style.position = 'static';
         return;
     }
-    console.log(e.deltaY);
+
+    if (window.scrollY == 0) outOfMain = false;
+    if (!outOfMain) {
+        offsetSum += e.deltaY > 0 ? 10 : -10;
+        offsetSum = offsetSum > 500 ? 500 : offsetSum;
+    }
+    
+    console.log(offsetSum, outOfMain);
+    if (offsetSum < 0) {
+        offsetSum = 0;
+    } else if (offsetSum >= 500) {
+        document.getElementsByTagName('body')[0].style.position = 'static';
+        outOfMain = true;
+    } else if (offsetSum <= 300) {
+        if (vw > 900) {
+            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
+            neckHead.style.top = `${-24 - Math.cos(offsetSum/500*30*Math.PI/180)*8}vh`;
+            neckHead.style.left = `${3.75 + Math.sin(offsetSum/500*30*Math.PI/180)*8}vh`;
+        } else {
+            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
+            neckHead.style.top = `${-19 - Math.cos(offsetSum/500*30*Math.PI/180)*6}vh`;
+            neckHead.style.left = `${2.5 + Math.sin(offsetSum/500*30*Math.PI/180)*6}vh`;
+        }
+    }
+
+    // if (window.scrollY == 0) {
+    //     offsetSum = 300;
+    // }
+
+    if (offsetSum >= 300) {
+        bg.style.backgroundColor = '#FFC2B9';
+        if (!showedLogo) {
+            if (vw > 900) {
+                noti.style.animationName = 'fadein1';
+                noti.style.animationDuration = '1s';
+                noti.style.opacity = 1;
+            } else {
+                noti.style.animationName = 'fadein2';
+                noti.style.animationDuration = '1s';
+                noti.style.opacity = 1;
+            }
+            showedLogo = true;
+        }
+    } else {
+        bg.style.backgroundColor = '#BBFFB9';
+    }
+
+    if (offsetSum < 300) {
+        document.getElementsByTagName('body')[0].style.position = 'fixed';
+        noti.style.opacity = 0;
+        noti.style.animationName = 'none';
+        showedLogo = false;
+    } 
+}
+
+let prevY;
+const neckAnimationMobile = (e) => {
+    console.log(e.touches);
+    if (disableAnimation) {
+        if (window.scrollY == 0) disableAnimation = false;
+        document.getElementsByTagName('body')[0].style.position = 'static';
+        return;
+    }
+
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
         offsetSum += e.deltaY > 0 ? 10 : -10;
@@ -73,7 +136,7 @@ const neckAnimation = (e) => {
 }
 
 document.body.addEventListener("wheel", neckAnimation);
-window.addEventListener('touchmove', neckAnimation);
+window.addEventListener('touchmove', neckAnimationMobile);
 
 window.onload = () => {
     if (window.scrollY != 0) {
