@@ -9,20 +9,28 @@ const noti = document.getElementById('noti-wrapper');
 
 let disableAnimation = false;
 let showedLogo = false;
+let outOfMain = false;
 
-document.body.addEventListener("mousewheel", (e) => {
+const neckAnimation = (e) => {
     if (disableAnimation) {
         if (window.scrollY == 0) disableAnimation = false;
-        document.getElementsByTagName('body')[0].style.overflowY = 'visible';
+        document.getElementsByTagName('body')[0].style.position = 'static';
         return;
     }
-    offsetSum += e.deltaY;
-    console.log(offsetSum);
+
+    if (window.scrollY == 0) outOfMain = false;
+    if (!outOfMain) {
+        offsetSum += e.deltaY > 0 ? 10 : -10;
+        offsetSum = offsetSum > 500 ? 500 : offsetSum;
+    }
+    
+    console.log(offsetSum, outOfMain);
     if (offsetSum < 0) {
         offsetSum = 0;
-    } else if (offsetSum >= 700) {
-        document.getElementsByTagName('body')[0].style.overflowY = 'visible';
-    } else if (offsetSum <= 500) {
+    } else if (offsetSum >= 500) {
+        document.getElementsByTagName('body')[0].style.position = 'static';
+        outOfMain = true;
+    } else if (offsetSum <= 300) {
         if (vw > 900) {
             neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
             neckHead.style.top = `${-24 - Math.cos(offsetSum/500*30*Math.PI/180)*8}vh`;
@@ -34,7 +42,11 @@ document.body.addEventListener("mousewheel", (e) => {
         }
     }
 
-    if (offsetSum >= 500) {
+    // if (window.scrollY == 0) {
+    //     offsetSum = 300;
+    // }
+
+    if (offsetSum >= 300) {
         bg.style.backgroundColor = '#FFC2B9';
         if (!showedLogo) {
             if (vw > 900) {
@@ -52,18 +64,22 @@ document.body.addEventListener("mousewheel", (e) => {
         bg.style.backgroundColor = '#BBFFB9';
     }
 
-    if (offsetSum < 500) {
-        document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+    if (offsetSum < 300) {
+        document.getElementsByTagName('body')[0].style.position = 'fixed';
         noti.style.opacity = 0;
         noti.style.animationName = 'none';
         showedLogo = false;
     } 
-});
+}
+
+document.body.addEventListener("wheel", neckAnimation);
+window.addEventListener('touchmove', neckAnimation);
 
 window.onload = () => {
     if (window.scrollY != 0) {
         disableAnimation = true;
     }
-    document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+    // document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+    document.getElementsByTagName('body')[0].style.position = 'fixed';
     // disableScroll();
 }
