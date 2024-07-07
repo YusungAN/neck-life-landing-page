@@ -21,7 +21,6 @@ body {
     background-color: #3c87f1;
 }
 
-
 .slide {
     display: flex;
     height: 100vh;
@@ -34,6 +33,18 @@ body {
 
 .right {
     width: 50%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.right3 {
+    width: 50%;
+    overflow: hidden;
+}
+
+.right2 {
+    width: 50%;
+    overflow: hidden;
 }
 
 .main-p {
@@ -52,11 +63,127 @@ body {
     width: 50%;
     font-size: 1.4rem;
     color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .ios-img {
     width: 17%;
     margin-right: 10px;
+}
+
+.base-mockup {
+    height: 95vh;
+    margin-top: 15vh;
+}
+
+.neck-bg {
+    width: 33vh;
+    height: 27vh;
+    background-color: #BBFFB9;
+    position: relative;
+    top: -68.5vh;
+    left: calc(25vw - 16.5vh);
+    border-radius: 20px;
+    padding-top: 13vh;
+    padding-left: 12.5vh;
+}
+
+.neck-body {
+    background-color: #D9D9D9;
+    width: 10vh;
+    height: 13vh;
+    border-radius: 50px 50px 0 0;
+}
+
+.neck {
+    background-color: #d9d9d9;
+    width: 2.5vh;
+    height: 8vh;
+    position: relative;
+    top: -19.5vh;
+    left: 3.75vh;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+}
+
+.neck-head {
+    background-color: #d9d9d9;
+    width: 7vh;
+    height: 7vh;
+    position: relative;
+    top: -32vh;
+    left: 3.75vh;
+}
+
+.eyes {
+    background-color: black;
+    width: 3vh;
+    height: 1vh;
+    position: relative;
+    top: 1.5vh;
+    left: 4vh;
+}
+
+.mouth {
+    background-color: black;
+    width: 1vh;
+    height: 1vh;
+    position: relative;
+    top: 4vh;
+    left: 6vh;
+}
+
+@keyframes fadein1 {
+    from {
+        top: 25vh;
+        opacity: 0;
+    }
+
+    to {
+        top: 31vh;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein2 {
+    from {
+        top: 15vh;
+        opacity: 0;
+    }
+
+    to {
+        top: 18vh;
+        opacity: 1;
+    }
+}
+
+#noti-wrapper {
+    width: 35vh;
+    background-color: rgba(232, 232, 232, 0.891);
+    height: 7vh;
+    position: relative;
+    top: 31vh;
+    left: calc(25vw - 17.5vh);
+    border-radius: 25px;
+    display: flex;
+    padding-left: 2vh;
+    align-items: center;
+    opacity: 0;
+    z-index: 100;
+}
+
+.noti-logo {
+    width: 4vh;
+    height: 4vh;
+    background-color: #54c5f8;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.noti-text-wrapper {
+    text-align: start;
+    font-size: 1.7vh;
 }
 
 .mockup {
@@ -83,6 +210,7 @@ body {
     justify-content: center;
     align-items: center;
     padding-right: 10vw;
+    overflow: visible;
 }
 
 .mockup-desc-even {
@@ -132,4 +260,198 @@ body {
     width: 35px;
     filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(103%) contrast(103%);
     margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+
+    .right2 {
+        text-align: center;
+        margin-left: -30px;
+    }
+
+    .base-mockup {
+        height: 70vh;
+        /* margin-left: -60px; */
+        margin-top: 5vh;
+    }
+
+    .neck-bg {
+        width: 25.5vh;
+        height: 21vh;
+        background-color: #BBFFB9;
+        position: relative;
+        top: -53vh;
+        left: calc(50vw - 12.6vh);
+        border-radius: 20px;
+        padding-top: 10vh;
+        padding-left: 9.25vh;
+    }
+    
+    .neck-body {
+        background-color: #D9D9D9;
+        width: 7vh;
+        height: 10vh;
+        border-radius: 50px 50px 0 0;
+    }
+    
+    .neck {
+        background-color: #d9d9d9;
+        width: 2vh;
+        height: 6vh;
+        position: relative;
+        top: -15.5vh;
+        left: 2.5vh;
+        transform-origin: bottom center;
+        transform: rotate(0deg);
+    }
+    
+    .neck-head {
+        background-color: #d9d9d9;
+        width: 5vh;
+        height: 5vh;
+        position: relative;
+        top: -25vh;
+        left: 2.5vh;
+    }
+    
+    .eyes {
+        background-color: black;
+        width: 2vh;
+        height: 0.7vh;
+        position: relative;
+        top: 1.5vh;
+        left: 3vh;
+    }
+    
+    .mouth {
+        background-color: black;
+        width: 0.7vh;
+        height: 0.7vh;
+        position: relative;
+        top: 3vh;
+        left: 4.23vh;
+    }
+
+    #noti-wrapper {
+        width: 27vh;
+        background-color: rgba(232, 232, 232, 0.891);
+        height: 6vh;
+        position: relative;
+        top: 18vh;
+        left: calc(50vw - 13.5vh);
+        border-radius: 25px;
+        display: flex;
+        padding-left: 2vh;
+        align-items: center;
+        opacity: 0;
+        z-index: 100;
+    }
+    
+    .noti-logo {
+        width: 4vh;
+        height: 4vh;
+        background-color: #54c5f8;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+    
+    .noti-text-wrapper {
+        text-align: start;
+        font-size: 1.5vh;
+    }
+
+    .slide {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    #main {
+        padding-left: 30px;
+    }
+
+    .left {
+        width: 100%;
+        padding-left: 0;
+    }
+    
+    .right {
+        width: 100vw;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 10vh;
+        color: white;
+        line-height: 4.5rem;
+    }
+
+    .main-p {
+        display: none;
+    }
+
+    .appstore {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #3D3D3D;
+        border-radius: 8px;
+        width: 50%;
+        font-size: 1.4rem;
+        color: white;
+    }
+    
+    .ios-img {
+        width: 17%;
+        margin-right: 10px;
+    }
+    
+    .mockup {
+        height: 70vh;
+        filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.483));
+    }
+
+    #slide1 {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .mockup-wrap-odd {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mockup-desc-odd {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .mockup-wrap-even {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 0;
+    }
+    
+    .mockup-desc-even {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .desc-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .desc {
+        display: none;
+    }
 }
