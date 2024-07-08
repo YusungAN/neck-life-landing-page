@@ -268,7 +268,38 @@ body {
     margin-right: 10px;
 }
 
+.mobile-msg {
+    display: none;
+}
+
+@keyframes mobile-msg-fadein {
+    from {
+        opacity: 0;
+        top: 0;
+    }
+
+    to {
+        opacity: 1;
+        top: 20px;
+    }
+}
+
 @media (max-width: 900px) {
+
+    .mobile-msg {
+        display: block;
+        width: 90%;
+        background-color: rgba(232, 232, 232, 0.259);
+        height: 5vh;
+        border-radius: 25px;
+        text-align: center;
+        line-height: 5vh;
+        opacity: 1;
+        position: absolute;
+        top: 20px;
+        animation-name: mobile-msg-fadein;
+        animation-duration: 1s;
+    }
 
     .main-title span {
         font-size: 4rem;
