@@ -64,7 +64,7 @@ const neckAnimation = (e) => {
     }
 
     if (offsetSum < 300) {
-        // document.getElementsByTagName('body')[0].style.position = 'fixed';
+        document.getElementsByTagName('body')[0].style.position = 'fixed';
         noti.style.opacity = 0;
         noti.style.animationName = 'none';
         showedLogo = false;
@@ -134,7 +134,7 @@ const neckAnimationMobile = (e) => {
     }
 
     if (offsetSum < 300) {
-        // document.getElementsByTagName('body')[0].style.position = 'fixed';
+        document.getElementsByTagName('body')[0].style.position = 'fixed';
         noti.style.opacity = 0;
         noti.style.animationName = 'none';
         showedLogo = false;
@@ -158,8 +158,7 @@ const touchendEvent = (e) => {
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
         let dt = Date.now() - prevTime;
-        if (dt < 100) dt = 100;
-        offsetSum += deltaY > 0 ? deltaY/dt*2 : -deltaY/dt*2;
+        offsetSum += deltaY > 0 ? deltaY/dt : -deltaY/dt;
         prevTime = 0;
     }
     
@@ -203,7 +202,7 @@ const touchendEvent = (e) => {
     }
 
     if (offsetSum < 300) {
-        // document.getElementsByTagName('body')[0].style.position = 'fixed';
+        document.getElementsByTagName('body')[0].style.position = 'fixed';
         noti.style.opacity = 0;
         noti.style.animationName = 'none';
         showedLogo = false;
