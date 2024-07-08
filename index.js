@@ -73,7 +73,7 @@ const neckAnimation = (e) => {
 
 let prevY = 0;
 let prevTime = 0;
-
+let lastY = 0;
 const neckAnimationMobile = (e) => {
     if (isMoving) return;
     let nowY = e.touches[0].pageY;
@@ -82,7 +82,7 @@ const neckAnimationMobile = (e) => {
         return;
     }
     let deltaY = prevY - nowY;
-
+    lastY = nowY;
     if (disableAnimation) {
         if (window.scrollY == 0) disableAnimation = false;
         document.getElementsByTagName('body')[0].style.position = 'static';
@@ -146,12 +146,14 @@ let isMoving = false;
 let ivID = 0;
 const touchendEvent = (e) => {
     if (isMoving) return;
-    let nowY = e.touches[0].pageY;
+    // console.log(e.touches);
+    let nowY = lastY;
+
     if (prevY == 0) {
         prevY = nowY;
         return;
     }
-    let deltaY = prevY - nowY;
+    // let deltaY = prevY - nowY;
 
     if (disableAnimation) {
         if (window.scrollY == 0) disableAnimation = false;
