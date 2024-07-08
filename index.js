@@ -88,7 +88,7 @@ const neckAnimationMobile = (e) => {
 
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
-        offsetSum += deltaY > 0 ? 10 : -10;
+        offsetSum += deltaY > 0 ? deltaY/10 : -deltaY/10;
         offsetSum = offsetSum > 500 ? 500 : offsetSum;
     }
     
