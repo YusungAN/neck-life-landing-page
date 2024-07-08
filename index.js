@@ -90,13 +90,76 @@ const neckAnimationMobile = (e) => {
 
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
-        if (prevTime != 0) {
-            let dt = Date.now() - prevTime;
-            offsetSum += deltaY > 0 ? deltaY/dt : -deltaY/dt;
+        offsetSum += deltaY > 0 ? deltaY : -deltaY/10;
+        offsetSum = offsetSum > 500 ? 500 : offsetSum;
+    }
+    
+    if (offsetSum < 0) {
+        offsetSum = 0;
+    } else if (offsetSum >= 500) {
+        document.getElementsByTagName('body')[0].style.position = 'static';
+        outOfMain = true;
+    } else if (offsetSum <= 300) {
+        if (vw > 900) {
+            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
+            neckHead.style.top = `${-24 - Math.cos(offsetSum/500*30*Math.PI/180)*8}vh`;
+            neckHead.style.left = `${3.75 + Math.sin(offsetSum/500*30*Math.PI/180)*8}vh`;
         } else {
-            offsetSum += deltaY > 0 ? deltaY : -deltaY/10;
-            offsetSum = offsetSum > 500 ? 500 : offsetSum;
+            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
+            neckHead.style.top = `${-19 - Math.cos(offsetSum/500*30*Math.PI/180)*6}vh`;
+            neckHead.style.left = `${2.5 + Math.sin(offsetSum/500*30*Math.PI/180)*6}vh`;
         }
+    }
+
+    // if (window.scrollY == 0) {
+    //     offsetSum = 300;
+    // }
+
+    if (offsetSum >= 300) {
+        bg.style.backgroundColor = '#FFC2B9';
+        if (!showedLogo) {
+            if (vw > 900) {
+                noti.style.animationName = 'fadein1';
+                noti.style.animationDuration = '1s';
+                noti.style.opacity = 1;
+            } else {
+                noti.style.animationName = 'fadein2';
+                noti.style.animationDuration = '1s';
+                noti.style.opacity = 1;
+            }
+            showedLogo = true;
+        }
+    } else {
+        bg.style.backgroundColor = '#BBFFB9';
+    }
+
+    if (offsetSum < 300) {
+        // document.getElementsByTagName('body')[0].style.position = 'fixed';
+        noti.style.opacity = 0;
+        noti.style.animationName = 'none';
+        showedLogo = false;
+    } 
+}
+
+const touchendEvent = (e) => {
+    let nowY = e.touches[0].pageY;
+    if (prevY == 0) {
+        prevY = nowY;
+        return;
+    }
+    let deltaY = prevY - nowY;
+
+    if (disableAnimation) {
+        if (window.scrollY == 0) disableAnimation = false;
+        document.getElementsByTagName('body')[0].style.position = 'static';
+        return;
+    }
+
+    if (window.scrollY == 0) outOfMain = false;
+    if (!outOfMain) {
+        let dt = Date.now() - prevTime;
+        offsetSum += deltaY > 0 ? deltaY/dt : -deltaY/dt;
+        prevTime = 0;
     }
     
     if (offsetSum < 0) {
@@ -152,7 +215,7 @@ window.addEventListener('touchstart', (e) => {
     prevY = e.touches[0].pageY;
     prevTime = Date.now();
 });
-window.addEventListener('touchend', neckAnimationMobile);
+window.addEventListener('touchend', touchendEvent);
 
 window.onload = () => {
     if (window.scrollY != 0) {
