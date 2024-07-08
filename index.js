@@ -158,6 +158,7 @@ const touchendEvent = (e) => {
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
         let dt = Date.now() - prevTime;
+        if (dt < 100) dt = 100;
         offsetSum += deltaY > 0 ? deltaY/dt*2 : -deltaY/dt*2;
         prevTime = 0;
     }
