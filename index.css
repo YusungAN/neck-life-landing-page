@@ -459,7 +459,13 @@ body {
     }
 
     .desc {
-        display: none;
+        margin-top: 0vh;
+        width: 80vw;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        text-wrap: pretty;
+        word-break: keep-all;
+        text-align: center;
     }
 
 }
