@@ -64,7 +64,7 @@ const neckAnimation = (e) => {
     }
 
     if (offsetSum < 300) {
-        document.getElementsByTagName('body')[0].style.position = 'fixed';
+        // document.getElementsByTagName('body')[0].style.position = 'fixed';
         noti.style.opacity = 0;
         noti.style.animationName = 'none';
         showedLogo = false;
@@ -72,6 +72,8 @@ const neckAnimation = (e) => {
 }
 
 let prevY = 0;
+let prevTime = 0;
+
 const neckAnimationMobile = (e) => {
     let nowY = e.touches[0].pageY;
     if (prevY == 0) {
@@ -88,8 +90,13 @@ const neckAnimationMobile = (e) => {
 
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
-        offsetSum += deltaY > 0 ? deltaY/10 : -deltaY/10;
-        offsetSum = offsetSum > 500 ? 500 : offsetSum;
+        if (prevTime != 0) {
+            let dt = Date.now() - prevTime;
+            offsetSum += deltaY > 0 ? deltaY/dt : -deltaY/dt;
+        } else {
+            offsetSum += deltaY > 0 ? deltaY : -deltaY/10;
+            offsetSum = offsetSum > 500 ? 500 : offsetSum;
+        }
     }
     
     if (offsetSum < 0) {
@@ -132,7 +139,7 @@ const neckAnimationMobile = (e) => {
     }
 
     if (offsetSum < 300) {
-        document.getElementsByTagName('body')[0].style.position = 'fixed';
+        // document.getElementsByTagName('body')[0].style.position = 'fixed';
         noti.style.opacity = 0;
         noti.style.animationName = 'none';
         showedLogo = false;
@@ -141,6 +148,11 @@ const neckAnimationMobile = (e) => {
 
 document.body.addEventListener("wheel", neckAnimation);
 window.addEventListener('touchmove', neckAnimationMobile);
+window.addEventListener('touchstart', (e) => {
+    prevY = e.touches[0].pageY;
+    prevTime = Date.now();
+});
+window.addEventListener('touchend', neckAnimationMobile);
 
 window.onload = () => {
     if (window.scrollY != 0) {
