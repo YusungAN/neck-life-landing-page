@@ -164,7 +164,7 @@ const touchendEvent = (e) => {
     if (window.scrollY == 0) outOfMain = false;
     if (!outOfMain) {
         let dt = Date.now() - prevTime;
-        if (dt < 300) {
+        if (dt < 600) {
             isMoving = true;
             ivID = setInterval(() => {
                 offsetSum += 5;
