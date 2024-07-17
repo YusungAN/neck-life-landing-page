@@ -10,7 +10,6 @@ a {
     text-decoration: none;
 }
 
-
 body {
     margin: 0;
     overflow-x: hidden;
@@ -92,7 +91,7 @@ body {
 .neck-bg {
     width: 33vh;
     height: 27vh;
-    background-color: #BBFFB9;
+    background-color: rgb(255, 194, 185);;
     position: relative;
     top: -68.5vh;
     left: 6vh;
@@ -116,7 +115,7 @@ body {
     top: -19.5vh;
     left: 3.75vh;
     transform-origin: bottom center;
-    transform: rotate(0deg);
+    transform: rotate(18deg);
 }
 
 .neck-head {
@@ -124,8 +123,8 @@ body {
     width: 7vh;
     height: 7vh;
     position: relative;
-    top: -32vh;
-    left: 3.75vh;
+    top: -31.6085vh;
+    left: 6.22214vh;
 }
 
 .eyes {
@@ -148,23 +147,23 @@ body {
 
 @keyframes fadein1 {
     from {
-        top: 25vh;
-        opacity: 0;
+        top: 31vh;
+        opacity: 1;
     }
 
     to {
-        top: 31vh;
-        opacity: 1;
+        top: 25vh;
+        opacity: 0;
     }
 }
 
 @keyframes fadein2 {
-    from {
+    to {
         top: 10vh;
         opacity: 0;
     }
 
-    to {
+    from {
         top: 13vh;
         opacity: 1;
     }
@@ -181,7 +180,7 @@ body {
     display: flex;
     padding-left: 2vh;
     align-items: center;
-    opacity: 0;
+    opacity: 1;
     z-index: 100;
 }
 
@@ -279,12 +278,12 @@ body {
 }
 
 @keyframes mobile-msg-fadein {
-    from {
+    to {
         opacity: 0;
         top: 0;
     }
 
-    to {
+    from {
         opacity: 1;
         top: 20px;
     }
@@ -326,7 +325,7 @@ body {
     .neck-bg {
         width: 25.5vh;
         height: 21vh;
-        background-color: #BBFFB9;
+        background-color: #FFC2B9;
         position: relative;
         top: -53vh;
         left: calc(50vw - 12.6vh);
@@ -350,7 +349,7 @@ body {
         top: -15.5vh;
         left: 2.5vh;
         transform-origin: bottom center;
-        transform: rotate(0deg);
+        transform: rotate(18deg);
     }
     
     .neck-head {
@@ -358,8 +357,8 @@ body {
         width: 5vh;
         height: 5vh;
         position: relative;
-        top: -25vh;
-        left: 2.5vh;
+        top: -24.7063vh;
+        left: 4.3541vh;
     }
     
     .eyes {
@@ -391,7 +390,7 @@ body {
         display: flex;
         padding-left: 2vh;
         align-items: center;
-        opacity: 0;
+        opacity: 1;
         z-index: 100;
     }
     
