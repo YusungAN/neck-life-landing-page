@@ -30,14 +30,15 @@ const neckAnimation = (e) => {
         document.getElementsByTagName('body')[0].style.position = 'static';
         outOfMain = true;
     } else if (offsetSum <= 300) {
+        let moving = 300-offsetSum;
         if (vw > 900) {
-            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
-            neckHead.style.top = `${-24 - Math.cos(offsetSum/500*30*Math.PI/180)*8}vh`;
-            neckHead.style.left = `${3.75 + Math.sin(offsetSum/500*30*Math.PI/180)*8}vh`;
+            neck.style.transform = `rotate(${moving/500*30}deg)`;
+            neckHead.style.top = `${-24 - Math.cos(moving/500*30*Math.PI/180)*8}vh`;
+            neckHead.style.left = `${3.75 + Math.sin(moving/500*30*Math.PI/180)*8}vh`;
         } else {
-            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
-            neckHead.style.top = `${-19 - Math.cos(offsetSum/500*30*Math.PI/180)*6}vh`;
-            neckHead.style.left = `${2.5 + Math.sin(offsetSum/500*30*Math.PI/180)*6}vh`;
+            neck.style.transform = `rotate(${moving/500*30}deg)`;
+            neckHead.style.top = `${-19 - Math.cos(moving/500*30*Math.PI/180)*6}vh`;
+            neckHead.style.left = `${2.5 + Math.sin(moving/500*30*Math.PI/180)*6}vh`;
         }
     }
 
@@ -46,26 +47,26 @@ const neckAnimation = (e) => {
     // }
 
     if (offsetSum >= 300) {
-        bg.style.backgroundColor = '#FFC2B9';
+        bg.style.backgroundColor = '#BBFFB9';
         if (!showedLogo) {
             if (vw > 900) {
                 noti.style.animationName = 'fadein1';
                 noti.style.animationDuration = '1s';
-                noti.style.opacity = 1;
+                noti.style.opacity = 0;
             } else {
                 noti.style.animationName = 'fadein2';
                 noti.style.animationDuration = '1s';
-                noti.style.opacity = 1;
+                noti.style.opacity = 0;
             }
             showedLogo = true;
         }
     } else {
-        bg.style.backgroundColor = '#BBFFB9';
+        bg.style.backgroundColor = '#FFC2B9';
     }
 
     if (offsetSum < 300) {
         document.getElementsByTagName('body')[0].style.position = 'fixed';
-        noti.style.opacity = 0;
+        noti.style.opacity = 1;
         noti.style.animationName = 'none';
         showedLogo = false;
     } 
@@ -101,14 +102,15 @@ const neckAnimationMobile = (e) => {
         document.getElementsByTagName('body')[0].style.position = 'static';
         outOfMain = true;
     } else if (offsetSum <= 300) {
+        let moving = 300 - offsetSum;
         if (vw > 900) {
-            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
-            neckHead.style.top = `${-24 - Math.cos(offsetSum/500*30*Math.PI/180)*8}vh`;
-            neckHead.style.left = `${3.75 + Math.sin(offsetSum/500*30*Math.PI/180)*8}vh`;
+            neck.style.transform = `rotate(${moving/500*30}deg)`;
+            neckHead.style.top = `${-24 - Math.cos(moving/500*30*Math.PI/180)*8}vh`;
+            neckHead.style.left = `${3.75 + Math.sin(moving/500*30*Math.PI/180)*8}vh`;
         } else {
-            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
-            neckHead.style.top = `${-19 - Math.cos(offsetSum/500*30*Math.PI/180)*6}vh`;
-            neckHead.style.left = `${2.5 + Math.sin(offsetSum/500*30*Math.PI/180)*6}vh`;
+            neck.style.transform = `rotate(${moving/500*30}deg)`;
+            neckHead.style.top = `${-19 - Math.cos(moving/500*30*Math.PI/180)*6}vh`;
+            neckHead.style.left = `${2.5 + Math.sin(moving/500*30*Math.PI/180)*6}vh`;
         }
     }
 
@@ -117,26 +119,26 @@ const neckAnimationMobile = (e) => {
     // }
 
     if (offsetSum >= 300) {
-        bg.style.backgroundColor = '#FFC2B9';
+        bg.style.backgroundColor = '#BBFFB9';
         if (!showedLogo) {
             if (vw > 900) {
                 noti.style.animationName = 'fadein1';
                 noti.style.animationDuration = '1s';
-                noti.style.opacity = 1;
+                noti.style.opacity = 0;
             } else {
                 noti.style.animationName = 'fadein2';
                 noti.style.animationDuration = '1s';
-                noti.style.opacity = 1;
+                noti.style.opacity = 0;
             }
             showedLogo = true;
         }
     } else {
-        bg.style.backgroundColor = '#BBFFB9';
+        bg.style.backgroundColor = '#FFC2B9';
     }
 
     if (offsetSum < 300) {
         document.getElementsByTagName('body')[0].style.position = 'fixed';
-        noti.style.opacity = 0;
+        noti.style.opacity = 1;
         noti.style.animationName = 'none';
         showedLogo = false;
     } 
@@ -168,14 +170,15 @@ const touchendEvent = (e) => {
             isMoving = true;
             ivID = setInterval(() => {
                 offsetSum += 5;
+                let moving = 300 - offsetSum >= 0 ? 300 - offsetSum : 0;
                 if (vw > 900) {
-                    neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
-                    neckHead.style.top = `${-24 - Math.cos(offsetSum/500*30*Math.PI/180)*8}vh`;
-                    neckHead.style.left = `${3.75 + Math.sin(offsetSum/500*30*Math.PI/180)*8}vh`;
+                    neck.style.transform = `rotate(${moving/500*30}deg)`;
+                    neckHead.style.top = `${-24 - Math.cos(moving/500*30*Math.PI/180)*8}vh`;
+                    neckHead.style.left = `${3.75 + Math.sin(moving/500*30*Math.PI/180)*8}vh`;
                 } else {
-                    neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
-                    neckHead.style.top = `${-19 - Math.cos(offsetSum/500*30*Math.PI/180)*6}vh`;
-                    neckHead.style.left = `${2.5 + Math.sin(offsetSum/500*30*Math.PI/180)*6}vh`;
+                    neck.style.transform = `rotate(${moving/500*30}deg)`;
+                    neckHead.style.top = `${-19 - Math.cos(moving/500*30*Math.PI/180)*6}vh`;
+                    neckHead.style.left = `${2.5 + Math.sin(moving/500*30*Math.PI/180)*6}vh`;
                 }
                 if (offsetSum >= 500) {
                     document.getElementsByTagName('body')[0].style.position = 'static';
@@ -183,21 +186,21 @@ const touchendEvent = (e) => {
                     clearInterval(ivID);
                 }
                 if (offsetSum >= 300) {
-                    bg.style.backgroundColor = '#FFC2B9';
+                    bg.style.backgroundColor = '#BBFFB9';
                     if (!showedLogo) {
                         if (vw > 900) {
                             noti.style.animationName = 'fadein1';
                             noti.style.animationDuration = '1s';
-                            noti.style.opacity = 1;
+                            noti.style.opacity = 0;
                         } else {
                             noti.style.animationName = 'fadein2';
                             noti.style.animationDuration = '1s';
-                            noti.style.opacity = 1;
+                            noti.style.opacity = 0;
                         }
                         showedLogo = true;
                     }
                 } else {
-                    bg.style.backgroundColor = '#BBFFB9';
+                    bg.style.backgroundColor = '#FFC2B9';
                 }
             }, 10);
 
@@ -210,14 +213,15 @@ const touchendEvent = (e) => {
         document.getElementsByTagName('body')[0].style.position = 'static';
         outOfMain = true;
     } else if (offsetSum <= 300) {
+        let moving = 300-offsetSum;
         if (vw > 900) {
-            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
-            neckHead.style.top = `${-24 - Math.cos(offsetSum/500*30*Math.PI/180)*8}vh`;
-            neckHead.style.left = `${3.75 + Math.sin(offsetSum/500*30*Math.PI/180)*8}vh`;
+            neck.style.transform = `rotate(${moving/500*30}deg)`;
+            neckHead.style.top = `${-24 - Math.cos(moving/500*30*Math.PI/180)*8}vh`;
+            neckHead.style.left = `${3.75 + Math.sin(moving/500*30*Math.PI/180)*8}vh`;
         } else {
-            neck.style.transform = `rotate(${offsetSum/500*30}deg)`;
-            neckHead.style.top = `${-19 - Math.cos(offsetSum/500*30*Math.PI/180)*6}vh`;
-            neckHead.style.left = `${2.5 + Math.sin(offsetSum/500*30*Math.PI/180)*6}vh`;
+            neck.style.transform = `rotate(${moving/500*30}deg)`;
+            neckHead.style.top = `${-19 - Math.cos(moving/500*30*Math.PI/180)*6}vh`;
+            neckHead.style.left = `${2.5 + Math.sin(moving/500*30*Math.PI/180)*6}vh`;
         }
     }
 
@@ -245,7 +249,7 @@ const touchendEvent = (e) => {
 
     if (offsetSum < 300) {
         document.getElementsByTagName('body')[0].style.position = 'fixed';
-        noti.style.opacity = 0;
+        noti.style.opacity = 1;
         noti.style.animationName = 'none';
         showedLogo = false;
     } 
