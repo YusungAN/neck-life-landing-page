@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="PtNFZ6MTxXe00o_V8CoyI6TiN4jj6PytdxdMv7XD4Oo" />
-    <title>NeckLife: 당신의 목에 새 생명을</title>
+    <title>NeckLife: 에어팟과 함께하는 자세교정</title>
     <link rel="stylesheet" href="./index.css">
     <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script><script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.6.22-min.js.gz"></script><script>window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init('91aaa0ae8b9af0a2f6b73785485f760', {"autocapture":{"elementInteractions":true}});</script>
     <!-- Google Tag Manager -->
@@ -23,86 +23,110 @@
     
     gtag('config', 'AW-16715072215');
     </script>
-    
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDQD6NNM"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="main" class="slide">
         <div class="left">
-            <h1 class="main-title"><span>NeckLife</span>: 당신의 목에 새 생명을</h1>
+            <div>
+                <img src="./logowithname.png" id="lwi" alt="">
+            </div>
+            <div class="main-title" id="mt-above">에어팟만 착용한채로</div>
+            <div class="main-title">바른 자세를 유지해보세요</div>
             <p class="main-p">일에 집중하다보면 나도 모르게 거북이처럼 나오는 고개 <br>
                 에어팟 하나만으로 바른 자세를 유지해보세요</p>
-            <a href="https://apps.apple.com/kr/app/neck-life/id6553973734"><button class="appstore">
-                <img src="./ios.png" alt="" class="ios-img">
-                <div>iOS 다운로드</div>
-            </button></a>
-<!--             <button class="appstore" style="margin-top: 20px;">
-                <img src="./apple.png" alt="" style="filter: invert(50%) sepia(16%) saturate(7051%) hue-rotate(197deg) brightness(95%) contrast(98%); margin-top: 5px; margin-bottom: 5px; width: 15%;" class="ios-img">
-                <a href='/necklife-mac-1.0.0-test.dmg' download>
-                    <div>MacOs 다운로드</div>
+                <a href="https://apps.apple.com/kr/app/neck-life/id6553973734">
+                    <img src="./ios.png" alt="" class="ios-img" id="ios">
                 </a>
-            </button> -->
+            </button>
         </div>
-        <div class="right right2">
-            <div id="noti-wrapper">
+        <!-- <div class="right right2"> -->
+            <!-- <div id="noti-wrapper">
                 <div class="noti-logo"></div>
                 <div class="noti-text-wrapper">
                     <div>거북목 자세 감지</div>
                     <div>바른 자세를 유지해봅시다!</div>
                 </div>
+            </div> -->
+            <div style="display: flex; justify-content: center;">
+                <img src="./home.png" alt="" class="base-mockup mockup">
             </div>
-            <img src="./empty_mockup.png" alt="" class="base-mockup mockup">
-            <div class="neck-bg">
-                <div class="neck-body"></div>
+            <!-- <div class="neck-bg">
                 <div class="neck" id="neck"></div>
+                <img src="./head.png" alt="" class="neck-head" id="neck-head">
                 <div class="neck-head" id="neck-head">
                     <div class="eyes"></div>
                     <div class="mouth"></div>
                 </div>
-            </div>
-        </div>
+        </div> -->
     </div>
     <div id="slide1" class="slide">
         <div class="left mockup-wrap-odd">
-            <img src="./mockup1.png" alt="" class="mockup">
+            <img src="./home.png" alt="" class="mockup">
         </div>
         <div class="right3 mockup-desc-odd">
             <div class="desc-title">
                 실시간 자세 모니터링
             </div>
             <div class="desc">
-                에어팟에 탑재되어있는 센서를 이용해 실시간으로 사용자의 목 자세를 모니터링해요
+                에어팟에 탑재되어있는 센서를 이용해 자체 개발한 탐지 알고리즘을 이용하여 실시간으로 사용자의 목 자세를 모니터링해요
             </div>
         </div>
     </div>
     <div id="slide2" class="slide">
         <div class="left mockup-desc-even">
             <div class="desc-title">
-                백그라운드 알람
+                백그라운드 알림
             </div>
             <div class="desc">
-                앱을 한 번 실행하고 백그라운드에 두고, 일에 집중해보세요. 무의식적으로 앞으로 나오는 목 자세를 감지하면, 알람을 보내 알려드릴게요
+                앱을 한 번 실행하고 백그라운드에 두고, 일에 집중해보세요. 무의식적으로 앞으로 나오는 목 자세를 감지하면, 알림을 보내 알려드릴게요
             </div>
         </div>
         <div class="right mockup-wrap-even">
             <img src="./mockup2.png" alt="" class="mockup">
         </div>
     </div>
+    <div id="slide3" class="slide">
+        <div class="left mockup-wrap-odd">
+            <!-- <div> -->
+                <img src="./history.png" alt="" class="mockup2">
+                <!-- <img src="./mockup4.png" alt="" class="mockup" id="front"> -->
+            <!-- </div> -->
+        </div>
+        <div class="right3 mockup-desc-odd">
+            <div class="desc-title">
+                자세 히스토리/통계 제공
+            </div>
+            <div class="desc">
+                나의 자세가 어땠는지, 언제 어떤 자세를 취했었는지 정리해서 유용한 정보를 제공해요
+            </div>
+        </div>
+    </div>
+    <div id="slide4" class="slide">
+        <div class="left mockup-desc-even">
+            <div class="desc-title">
+                나만의 알림 설정
+            </div>
+            <div class="desc">
+                얼마나 민감하게 거북목을 탐지할지, 얼마나 나쁜 자세를 유지했을 때 알림을 울릴지, 나의 스타일에 맞게 설정할 수 있어요
+            </div>
+        </div>
+        <div class="right mockup-wrap-even">
+            <img src="./mockup5.png" alt="" class="mockup">
+        </div>
+    </div>
     <footer class="footer">
         <div class="inner-footer-wrap">
             <a href="https://www.necklife.site/tos.html">이용 약관</a> | <a href="https://www.necklife.site/pp.html">개인정보 처리방침</a>
         </div>
-<!--         <div class="icon-wrapper">
+        <!-- <div class="icon-wrapper">
             <img src="./insta.png" alt="" class="icon">
             <img src="./kakaotalk.png" alt="" class="icon">
         </div> -->
+        <br>
         <div class="footer-title">
-            NeckLife: 당신의 목에 새 생명을
+            Neck-Life: 에어팟과 함께하는 자세 교정
         </div>
     </footer>
-<!--     <script src="./index.js"></script> -->
+    <!-- <script src="./index.js"></script> -->
 </body>
 </html>
