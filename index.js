@@ -60,7 +60,6 @@ window.onload = () => {
     // console.log('asdf');
     let lang = navigator.language;
     lang = lang.substring(0, 2);
-    lang = 'en';
 
     for (let idx in keyList) {
         let key = keyList[idx];
