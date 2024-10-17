@@ -145,5 +145,33 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </div>
     </footer>
     <!-- <script src="./index.js"></script> -->
+
+    <!-- URL 파라미터에 따라 앱스토어 리디렉션 및 전환 추적. 앱스토어 리다이렉션 (1) -->
+     <script>
+        window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectToStore = urlParams.get('redirect_to_store');
+        console.log(redirectToStore);
+        // redirect_to_store가 'true'이면 전환 추적 후 앱스토어로 리디렉션
+        if (redirectToStore === 'true') {
+            // 전환 추적 이벤트 실행 및 콜백 설정
+            gtag('event', 'conversion', {
+            'send_to': 'AW-16735029680/tYKWCKHaxd4ZELCT8as-', // 전환 태그
+            'value': 1.0,
+            'currency': 'KRW',
+            'event_callback': () => {
+                // 전환 추적이 완료되면 앱스토어로 리디렉션
+                window.location.href = "https://apps.apple.com/kr/app/neck-life/id6553973734"; // 앱스토어 URL로 대체
+            }
+            });
+    
+            // 전환 추적 실패를 대비해 타임아웃으로 리디렉션 백업
+            setTimeout(function() {
+            window.location.href = "https://apps.apple.com/kr/app/neck-life/id6553973734";
+            }, 500); // 타임아웃 시간 설정 (0.5초 후 리디렉션)
+        }
+        };
+     </script>
+     
 </body>
 </html>
