@@ -17,6 +17,7 @@
             "captureUtm": true // UTM 파라미터를 자동으로 기록
         }
     });
+    
 </script>
     <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16735029680"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-16735029680'); </script>
 
@@ -30,6 +31,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           window.location = url;
         }
       };
+      fbq('trackCustom', 'AppStoreButtonClick'); // Meta 픽셀 - trackCustom으로 커스텀 이벤트 전송
       gtag('event', 'conversion', {
           'send_to': 'AW-16735029680/KuBrCO6Ao90ZELCT8as-',
           'value': 1.0,
@@ -40,6 +42,42 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     }
     </script>
     <script src="./index.js"></script>
+<!-- Meta Pixel Code -->
+<script>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(
+      window,
+      document,
+      "script",
+      "https://connect.facebook.net/en_US/fbevents.js"
+    );
+  
+    fbq("init", "935593428604495");
+    fbq("track", "PageView");
+  </script>
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=935593428604495&ev=PageView&noscript=1"
+    />
+  </noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
     <div id="main" class="slide">
@@ -133,17 +171,31 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </div>
     </div>
     <footer class="footer">
-        <div class="inner-footer-wrap">
-            <a href="https://www.necklife.site/tos.html" id="tos">이용 약관</a> | <a id="pp" href="https://www.necklife.site/pp.html">개인정보 처리방침</a>
+
+        <div class="icon-wrapper">
+            <!-- <img src="./insta.png" alt="" class="icon">
+            <img src="./kakaotalk.png" alt="" class="icon"> -->
+            <a href="https://www.instagram.com/necklife.app" target="_blank">
+                <img src="./insta.png" alt="Instagram" class="icon" style="width: 24px; height: auto;">
+            </a>
+            <a href="https://www.youtube.com/channel/UC2NEp6BVdtkOGZfGsXGd7SQ" target="_blank">
+                <img src="./youtube.png" alt="YouTube" class="icon" style="width: 24px; height: auto;">
+            </a>
+            
         </div>
-        <!-- <div class="icon-wrapper">
-            <img src="./insta.png" alt="" class="icon">
-            <img src="./kakaotalk.png" alt="" class="icon">
-        </div> -->
-        <br>
+        <!-- <img src="logotext.png" alt="Logo Text" width="120" height="auto"> <br> -->
         <div class="footer-title" id="ft">
             Neck-Life: 에어팟과 함께하는 자세 교정
         </div>
+        <div style="font-family: Arial, sans-serif; line-height: 0.2;">
+            <p>대표: 문영상, 류지원, 안유성</p>
+            <p>주소: 서울특별시 강남구 테헤란로 311, 7층</p>
+            <p>Email: <a href="mailto:somart.necklife@gmail.com">somart.necklife@gmail.com</a></p>
+          </div>
+
+      <div class="inner-footer-wrap">
+        <a href="https://www.necklife.site/tos.html" id="tos">이용 약관</a> | <a id="pp" href="https://www.necklife.site/pp.html">개인정보 처리방침</a>
+    </div>
     </footer>
     <!-- <script src="./index.js"></script> -->
 
